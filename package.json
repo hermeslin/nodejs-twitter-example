@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-twitter-example",
+  "version": "1.0.0",
+  "description": "the example for receiving twitter stream api via nodejs",
+  "main": "recieve_stream.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermeslin/nodejs-twitter-example.git"
+  },
+  "keywords": [
+    "twitter",
+    "stream",
+    "api"
+  ],
+  "author": "hermes.lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hermeslin/nodejs-twitter-example/issues"
+  },
+  "homepage": "https://github.com/hermeslin/nodejs-twitter-example#readme",
+  "dependencies": {
+    "twitter": "1.3.0",
+    "mongodb": "2.1.19",
+    "co": "4.6.0"
+  }
+}
