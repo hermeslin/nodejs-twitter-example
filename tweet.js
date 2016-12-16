@@ -69,7 +69,7 @@ co(function* () {
 });
 
 //==========================================
-// 
+// titter post
 //==========================================
 function twitterPost (text) { 
   return new Promise (function (resolve, reject){
