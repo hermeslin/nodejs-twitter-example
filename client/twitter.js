@@ -1,6 +1,6 @@
 'use strict';
 
-//load twitter 
+//load twitter
 var token = require('../config/twitter');
 var Twitter = require('twitter');
 

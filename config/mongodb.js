@@ -5,19 +5,19 @@ var config = {
   'info': {
     'host': 'localhost',
     'port': '27017',
-    'db': 'twitter',    
+    'db': 'twitter',
   },
 
   //collection
   'collections': {
-    'dm': { name: 'direction_message', 
+    'dm': { name: 'direction_message',
       option: {
-        capped: true, 
-        size: 10485760, 
+        capped: true,
+        size: 10485760,
         max: 200
       }
     },
-    'tweet': {name: 'tweet'},    
+    'tweet': {name: 'tweet'},
     'user': {name: 'user'}
   },
 

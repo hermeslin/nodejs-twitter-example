@@ -17,18 +17,18 @@ co(function* () {
 
   //begin twitter stream
   twitterClient.stream('user', function startStream (stream) {
-    
+
     console.log('streaming....');
 
     //when recieve stream succcess
     stream.on('data', function(response) {
-      var dm = response.direct_message;             
-      
+      var dm = response.direct_message;
+
       if (undefined !== dm)
       {
         //store direction message
         co(function *() {
-          
+
           let currentDate = new Date();
           let aHourAgo = currentDate.getTime() - (60 * 60 * 1000) - currentDate.getTimezoneOffset();
 
@@ -36,10 +36,10 @@ co(function* () {
             'sender_id': dm.sender_id,
             'created_at_date_obj': {$gte: new Date(aHourAgo)}
           };
-          
+
           let options = {
             sort: {
-              'created_at': -1  
+              'created_at': -1
             }
           };
 
@@ -59,9 +59,9 @@ co(function* () {
               'entities': dm.entities,
               'created_at_date_obj': new Date(dm.created_at),
             };
-            
+
             yield db.collection(config.collections.dm.name).insertOne(document);
-            console.log('insert into '+config.collections.dm.name+' collection with text: '+document.text);                       
+            console.log('insert into '+config.collections.dm.name+' collection with text: '+document.text);
           }
           else
           {
@@ -74,12 +74,12 @@ co(function* () {
 
         //store user data
         co(function *() {
-          
+
           let query = {'id': dm.sender_id};
           let options = {
               new: false,
               remove: false,
-              upsert: true          
+              upsert: true
           };
 
           let success = yield db.collection(config.collections.user.name).findAndModify(query, false, dm.sender, options);
@@ -95,7 +95,7 @@ co(function* () {
       }
 
     });
-  
+
     //when recieve stream error
     stream.on('error', function(error) {
       console.log(error);

@@ -16,9 +16,9 @@ co(function* () {
 
   var db = yield MongoClient.connect(config.uri());
 
-  // collections is the normal object, 
+  // collections is the normal object,
   // dont use (for let collection of collections) to iterator each item
-  for (let index in collections) 
+  for (let index in collections)
   {
     let colleciton = collections[index];
     yield init_collection(db, colleciton);
@@ -42,7 +42,7 @@ function init_collection (db, colleciton)
   return new Promise (function (resolve, reject) {
 
     co(function* () {
-            
+
       //test if collection exists
       try {
         yield db.dropCollection(name);
@@ -54,10 +54,10 @@ function init_collection (db, colleciton)
 
       //create collection
       try {
-        
+
         let status = 'success';
         let createedCollection = yield db.createCollection(name, option);
-        
+
         //need create index ?
         if (undefined !== option.index)
         {
@@ -73,21 +73,21 @@ function init_collection (db, colleciton)
         if (capped)
         {
           let capped = yield createedCollection.isCapped();
-          status = (true === capped) ? 'with capped success' : 'with capped fail';  
+          status = (true === capped) ? 'with capped success' : 'with capped fail';
         }
         console.log(name +' create ' + status + '.');
       }
       catch (error) {
         console.log(name +' create fail.');
         reject(error);
-      }      
-    
-      resolve(this);      
+      }
+
+      resolve(this);
 
     })
     .catch(function (error) {
       reject(error)
     });
-  
-  }); 
+
+  });
 };
