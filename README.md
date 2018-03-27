@@ -6,7 +6,7 @@
 * nodejs, version 6.0 up
 * mongodb, version 3.2 up
 
-## 如何使用？
+## 如何使用呢？
 1. 先去 twitter 申請帳號
 
     這會取得 consumer_key, consumer_secret, access_token_key, access_token_secret 取得完後，再把值填入 config/twitter.js
