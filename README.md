@@ -1,7 +1,7 @@
 # nodejs-twitter-example
 **the example for receiving twitter stream api via nodejs**
 
-這是用來練習如何使用 stream 接收 twitter 的 user stream，再發送 tweet 的程式，再這之前，你必須要安裝
+這是用來練習如何使用 stream 接收 twitter 的 user stream，再發送 tweet 的程式。在這之前，你必須要安裝
 
 * nodejs, version 6.0 up
 * mongodb, version 3.2 up
